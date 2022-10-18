@@ -1,5 +1,17 @@
 // Your solutions will go here :)
 // use strict
+
+function isString(a){
+    return (typeof a === "string");
+}
+function isNum(a){
+    return (!isNaN(a) && typeof a === 'number');
+}
+function isBool(a){
+    return typeof a === "boolean";
+}
+
+
 function calculateChange(totalPaid, totalCost){
 
     if (typeof totalPaid === "boolean" || typeof totalCost === "boolean"){
@@ -40,14 +52,44 @@ function getLowestNumber(num1,num2,num3){
   return Math.min(num1,num2,num3);
 }
 
-function convertHourToSec(hours){
-    return (hours*60)*60;
+function convertHourToSec(a){
+    if (a !== undefined && a !== null && !isString(a) && !isBool(a) && !(a instanceof Array) && !(a instanceof Object) ) {
+
+        return (a * 60) * 60;
+    }else{return false;}
 }
 
 function multiplyBy2(a){
-    return a*2;
+    if (a !== undefined && a !== null && !isString(a) && !isBool(a) && !(a instanceof Array) && !(a instanceof Object) ) {
+
+        return a * 2;
+    }else {return false;}
 }
 
-// function isNotPalindrome(str){
-//     if ()
-// }
+function isNotPalindrome(str){
+
+}
+
+function isAllUpperCase(a){
+    if (a !== undefined && a !== null && !isNum(a) && !isBool(a) && !(a instanceof Array) && !(a instanceof Object) ){
+        return (a === a.toUpperCase());
+    }else {return false;}
+
+
+
+
+}
+
+function isAllLowerCase(a){
+    if (a !== undefined && a !== null && !isNum(a) && !isBool(a) && !(a instanceof Array) && !(a instanceof Object) ) {
+        return (a === a.toLowerCase());
+    }else {return false;}
+}
+
+function lowerCase(a){
+    if (a !== undefined && a !== null && !isNum(a) && !isBool(a) && !(a instanceof Array) && !(a instanceof Object) ){
+        return a.toLowerCase();
+    }else{return false;}
+
+
+}
