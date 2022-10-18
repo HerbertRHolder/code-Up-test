@@ -35,3 +35,19 @@ function addStringLengths(str1, str2){
     }
 
 }
+
+function getLowestNumber(num1,num2,num3){
+  return Math.min(num1,num2,num3);
+}
+
+function convertHourToSec(hours){
+    return (hours*60)*60;
+}
+
+function multiplyBy2(a){
+    return a*2;
+}
+
+// function isNotPalindrome(str){
+//     if ()
+// }
