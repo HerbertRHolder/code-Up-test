@@ -14,7 +14,8 @@ function isBool(a){
 
 function calculateChange(totalPaid, totalCost){
 
-    if (typeof totalPaid === "boolean" || typeof totalCost === "boolean"){
+    if (typeof totalPaid === "boolean" || typeof totalCost === "boolean" && (totalCost === null)  || (totalPaid === null)
+    && totalPaid === false && totalCost === false){
         return false;
     }else if (isNaN(totalPaid) || isNaN(totalCost)){
         return false;
@@ -33,30 +34,37 @@ function subtract(a,b){
     }
 }
 
-function addStringLengths(str1, str2){
-    if ((str1 !== undefined) && (str2 !== undefined) || (typeof str1 !== "number") && (typeof str2 !== "number")){
-        if ((typeof str2 !== "number") || (typeof str2 !== "number")){
-            if (typeof str1 === "string" && typeof str2 === "string"){
-                return str1.length + str2.length;
-            }
-        }
+function addStringLengths(a, b){
 
-    }else {
-       return false;
 
-    }
+            return a.length + b.length;
+
+
+
 
 }
 
-function getLowestNumber(num1,num2,num3){
-  return Math.min(num1,num2,num3);
+
+
+function getLowestNumber(a,b,c){
+    if (a !== undefined && a !== null && !isString(a) && !isBool(a) && !(a instanceof Array) && !(a instanceof Object)  && (
+        (b !== undefined && b !== null && !isString(b) && !isBool(b) && !(b instanceof Array) && !(b instanceof Object)
+    ))  && ((c !== undefined && c !== null && !isString(c) && !isBool(c) && !(c instanceof Array) && !(c instanceof Object)))
+    ){
+
+        return Math.min(a, b, c);
+
+}else {return false;}
+
 }
+
 
 function convertHourToSec(a){
-    if (a !== undefined && a !== null && !isString(a) && !isBool(a) && !(a instanceof Array) && !(a instanceof Object) ) {
 
-        return (a * 60) * 60;
-    }else{return false;}
+
+        return parseFloat(((a * 60) * 60).toString());
+
+
 }
 
 function multiplyBy2(a){
@@ -68,6 +76,10 @@ function multiplyBy2(a){
 
 function isNotPalindrome(str){
 
+    let newStr = str.join('').reverse().split();
+
+
+ return str === newStr;
 }
 
 function isAllUpperCase(a){
