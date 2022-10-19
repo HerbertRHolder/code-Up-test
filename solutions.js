@@ -1,107 +1,102 @@
-// Your solutions will go here :)
 // use strict
-
-function isString(a){
-    return (typeof a === "string");
+function isNum(x){
+   return (typeof x === "number" && !isNaN(x))
 }
-function isNum(a){
-    return (!isNaN(a) && typeof a === 'number');
+function isBool (x){
+    return (typeof x === "boolean");
 }
-function isBool(a){
-    return typeof a === "boolean";
+function isNull(x){
+    return x === null;
 }
-
-
-function calculateChange(totalPaid, totalCost){
-
-    if (typeof totalPaid === "boolean" || typeof totalCost === "boolean" && (totalCost === null)  || (totalPaid === null)
-    && totalPaid === false && totalCost === false){
-        return false;
-    }else if (isNaN(totalPaid) || isNaN(totalCost)){
-        return false;
-    }
-    return '$' + (parseFloat(totalPaid) - parseFloat(totalCost));
+function isString(x){
+    return typeof x === 'string';
 }
-
-function subtract(a,b){
-    if (!isNaN(a) && !isNaN(b) || a !== undefined || b !== undefined || a !== null || b !== null){
-        if ( a !== false || b !== false){
-            return parseInt(a) - parseInt(b);
-        }
-
-    }else {
-        return false;
-    }
+function isUndefined(x){
+    return x === undefined;
 }
-
-function addStringLengths(a, b){
-
-
-            return a.length + b.length;
-
-
-
+function isNeg(x){
+    return isNum(x) && (x < 0);
+}
+function isArray(x){
+    return (x instanceof Array);
+}
+function isObject(x){
+    return (x instanceof Object);
+}
+function lowerCase(a){
+    if (!isUndefined(a) && !isNull(a) && !isNull(a) && !isBool(a) && !isObject(a) && !isArray(a) && isString(a))
+    {
+        return a.toLowerCase();
+    }else {return false;}
+}
+function isAllLowerCase(a){
+    if (!isUndefined(a) && !isNull(a) && !isNull(a) && !isBool(a) && !isObject(a) && !isArray(a) && isString(a)){
+        return a.toLowerCase() === a;
+    }else {return false;}
 
 }
-
-
-
-function getLowestNumber(a,b,c){
-    if (a !== undefined && a !== null && !isString(a) && !isBool(a) && !(a instanceof Array) && !(a instanceof Object)  && (
-        (b !== undefined && b !== null && !isString(b) && !isBool(b) && !(b instanceof Array) && !(b instanceof Object)
-    ))  && ((c !== undefined && c !== null && !isString(c) && !isBool(c) && !(c instanceof Array) && !(c instanceof Object)))
-    ){
-
-        return Math.min(a, b, c);
-
-}else {return false;}
-
+function isAllUpperCase(a){
+    if (!isUndefined(a) && !isNull(a) && !isNull(a) && !isBool(a) && !isObject(a) && !isArray(a) && isString(a)){
+        return a.toUpperCase() === a;
+    }else {return false;}
 }
+function isNotPalindrome(a) {
+    if (a[0] !== a.toUpperCase() && !isUndefined(a) && !isNull(a) && !isBool(a) && !isObject(a) && !isArray(a) && isString(a) && !isNum(a))
+    {
+        let arr = a.split('');
+         arr = arr.reverse();
+       return !(arr.join('') === a);
 
-
-function convertHourToSec(a){
-
-
-        return parseFloat(((a * 60) * 60).toString());
-
+    }else {return true;}
 
 }
 
 function multiplyBy2(a){
-    if (a !== undefined && a !== null && !isString(a) && !isBool(a) && !(a instanceof Array) && !(a instanceof Object) ) {
-
-        return a * 2;
+    if (!isUndefined(a) && !isNull(a) && !isBool(a) && !isObject(a)
+        && !isArray(a) && !isNaN(a)){
+        return parseInt(`${a*2}`);
     }else {return false;}
 }
 
-function isNotPalindrome(str){
-
-    let newStr = str.join('').reverse().split();
-
-
- return str === newStr;
-}
-
-function isAllUpperCase(a){
-    if (a !== undefined && a !== null && !isNum(a) && !isBool(a) && !(a instanceof Array) && !(a instanceof Object) ){
-        return (a === a.toUpperCase());
-    }else {return false;}
-
-
-
-
-}
-
-function isAllLowerCase(a){
-    if (a !== undefined && a !== null && !isNum(a) && !isBool(a) && !(a instanceof Array) && !(a instanceof Object) ) {
-        return (a === a.toLowerCase());
+function convertHourToSec(a){
+    if (!isUndefined(a) && !isNull(a) && !isBool(a) && !isObject(a)
+        && !isArray(a) && !isNaN(a) && !isNeg(a)){
+        return (a*60)*60;
     }else {return false;}
 }
 
-function lowerCase(a){
-    if (a !== undefined && a !== null && !isNum(a) && !isBool(a) && !(a instanceof Array) && !(a instanceof Object) ){
-        return a.toLowerCase();
-    }else{return false;}
+function getLowestNumber(a, b, c){
+    if (isArray(a) || isArray(b) || isArray(c))
+    {
+        return false;
+    }else if (!isUndefined(a) && !isNull(a) && !isBool(a) && !isObject(a)
+        && !isArray(a) && !isNaN(a) && isNum(a) === isNum(b) === isNum(c) || isNeg(a) || isNeg(b) || isNeg(c)){
+        return Math.min(a, b, c);
+    }else {return false;}
+}
+function addStringLengths(a, b){
+    if (isUndefined(a) || isUndefined(b) || isNum(a) || isNum(b) || isNull(a) || isNull(b) || isBool(b)
+        || isBool(a) || isObject(a) || isObject(b) || isArray(a) || isArray(b)){
+        return false;
+    }else {
+        return a.length + b.length;
+    }
+}
+
+function subtract(a, b){
+    if (isUndefined(a) || isUndefined(b) || isNaN(a) || isNaN(b) || isNull(a) || isNull(b) || isBool(b)
+        || isBool(a) || isObject(a) || isObject(b) || isArray(a) || isArray(b)){
+        return false;
+    }else{return a-b;}
+
+}
+function calculateChange(t, c){
+    if (isUndefined(t) || isUndefined(c) || isNaN(t) || isNaN(c) || isNull(t) || isNull(c) || isBool(t)
+        || isBool(c) || isObject(t) || isObject(c) || isArray(t) || isArray(c)){
+        return false;
+    }else{return "$" + parseFloat(`${t-c}`);}
 
 
 }
+
+
