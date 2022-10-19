@@ -1,6 +1,6 @@
 // use strict
 function isNum(x){
-   return (isNaN(parseFloat(x)))
+   return isNaN(parseFloat(x))
 }
 
 function isBool (x){
@@ -92,7 +92,7 @@ function subtract(a, b){
 
 }
 function calculateChange(t, c){
-    if (isUndefined(t) || isUndefined(c) || isNaN(t) || isNaN(c) || isNull(t) || isNull(c) || isBool(t)
+    if (isUndefined(t) || isUndefined(c) || !isNaN(t) || !isNaN(c) || isNull(t) || isNull(c) || isBool(t)
         || isBool(c) || isObject(t) || isObject(c) || isArray(t) || isArray(c)){
         return false;
     }else{return "$" + parseFloat(`${t-c}`);}
@@ -100,4 +100,5 @@ function calculateChange(t, c){
 
 }
 
+// 
 
