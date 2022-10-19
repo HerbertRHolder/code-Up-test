@@ -1,7 +1,8 @@
 // use strict
 function isNum(x){
-   return (typeof x === "number" && !isNaN(x))
+   return (isNaN(parseFloat(x)))
 }
+
 function isBool (x){
     return (typeof x === "boolean");
 }
