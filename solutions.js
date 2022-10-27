@@ -24,17 +24,16 @@ function isArray(x){
 function isObject(x){
     return (x instanceof Object);
 }
+
 function lowerCase(a){
-    if (!isUndefined(a) && !isNull(a) && !isNull(a) && !isBool(a) && !isObject(a) && !isArray(a) && isString(a))
-    {
-        return a.toLowerCase();
-    }else {return false;}
+   if(isString(a)){
+    return a.toLowerCase();
+   }
+
+   return false;
 }
 function isAllLowerCase(a){
-    if (!isUndefined(a) && !isNull(a) && !isNull(a) && !isBool(a) && !isObject(a) && !isArray(a) && isString(a)){
-        return a.toLowerCase() === a;
-    }else {return false;}
-
+    
 }
 function isAllUpperCase(a){
     if (!isUndefined(a) && !isNull(a) && !isNull(a) && !isBool(a) && !isObject(a) && !isArray(a) && isString(a)){
