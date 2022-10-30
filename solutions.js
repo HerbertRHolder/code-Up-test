@@ -28,9 +28,10 @@ function isAllLowerCase(a){
     return false;
 }
 function isAllUpperCase(a){
-    if (!isUndefined(a) && !isNull(a) && !isNull(a) && !isBool(a) && !isObject(a) && !isArray(a) && isString(a)){
-        return a.toUpperCase() === a;
-    }else {return false;}
+   if (isString(a)){
+    return a.toUpperCase() === a;
+   }
+   return false;
 }
 function isNotPalindrome(a) {
     let arr = [];
